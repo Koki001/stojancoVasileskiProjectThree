@@ -1,38 +1,205 @@
+
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App h1 {
+    font-size: 2rem;
+    color: black;
+}
+.wrapper {
+    max-width: 1600px;
+    width: 95%;
+    margin: 0 auto;
+}
+p {
+    color: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2 {
+    color: black;
+    margin: 0 0 30px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    min-width: 420px;
 }
 
-.App-link {
-  color: #61dafb;
+.formContainer h2 {
+    color: black;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inputForm {
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    border-radius: 8px;
+    background-color: #D8D0C5;
+    padding: 10px;
+    min-width: 420px;
+   
+}
+.inputForm button {
+    min-width: 90px;
+    height: 33px;
+    margin: 0;
+    padding: 2px 10px;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-weight: bolder;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:black;
+}
+.inputForm button:hover {
+    background:linear-gradient(to bottom, #e0dfdf 5%, #ddd9d9 100%);
+	background-color:#f6f6f6;
+}
+.inputForm button:active {
+    position:relative;
+	top:1px;
+}
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.inputsContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+}
+
+.inputCity {
+    margin-bottom: 5px;
+    padding: 2px 5px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    border: none;
+    border-bottom: 2px solid #DF8879;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-weight: bold;
+    
+}
+
+.formSelect {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-weight: bold;
+    width: 100%;
+    padding: 2px 5px;
+    scroll-behavior: smooth;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 8px;
+    border-bottom: 2px solid #DF8879;
+    /* appearance: none; */
+}
+.formSelect option {
+    font-family: 'News Cycle', sans-serif;
+    font-size: 0.85rem;
+    border-bottom: 2px solid #DF8879;
+    
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.weatherDisplayContainer {
+    position: relative;
+    z-index: 10;
+   background-color: #D8D0C5;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   /* padding: 100px 50px; */
+   width: 420px;
+   height: 55vh;
+   padding: 50px 0px;
+   border-radius: 8px;
+   transition: all 0.5s linear;
+}
+.trueFlip {
+    /* transform: rotateY(360deg); */
+    animation-name: blink;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    opacity: 1;
+}
+.falseFlip {
+    /* transform: rotateY(360deg); */
+    animation-name: blinkTwo;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    opacity: 1;
+}
+
+.iconImage {
+    position: absolute;
+    top: 130px;
+    left: 30px;
+    height: 100px;
+    width: 100px;
+}
+
+.cityName {
+    margin-right: 15px;
+}
+
+.forecastDisplay {
+    font-family: 'News Cycle', sans-serif;
+    font-size: 7.5rem;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+}
+.tempUnits {
+    font-weight: bolder;
+    font-size: 3rem;
+    position: absolute;
+    top: -25px;
+    right: -30px;
+}
+.weatherResult {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 65%;
+}
+
+.forecastInfo {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    width: 60%;
+}
+
+
+@keyframes blink {
+	0% {opacity: 0}
+    100% {opacity: 1}
+}
+@keyframes blinkTwo {
+	0% {opacity: 0}
+    100% {opacity: 1}
 }
