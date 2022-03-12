@@ -37,9 +37,11 @@ h3 {
 }
 
 .formContainer h2 {
-    color: black;
+    color: white;
     font-size: 1.2rem;
     margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
 }
 
 .inputForm {

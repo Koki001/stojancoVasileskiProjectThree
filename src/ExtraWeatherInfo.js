@@ -1,11 +1,10 @@
 // ExtrsWeatherInfo.js
 
 const ExtraWeatherInfo = function (props) {
-        // console.log(props)
-        const speedMS = Number(props.wind)
-        const speedKmH = (speedMS * 3600) / 1000
-
-        const finalWindSpeed = speedKmH.toFixed(1)
+    
+    const speedMS = Number(props.wind)
+    const speedKmH = (speedMS * 3600) / 1000
+    const finalWindSpeed = speedKmH.toFixed(1)
 
     return (
         <>

@@ -1,18 +1,17 @@
 // InputForm.js
-// import './App.css';
 import {useState} from "react"
 import countryList from "./CountriesList"
 
 function InputForm(props) {
 
+    // states used in submit function to update main API call states
     const [selectCountry, setSelectCountry] = useState("placeholder")
     const [selectCity, setSelectCity] = useState("")
-    // console.log(selectCity, "INPUTFORM.JS")
-    // country select function
+    // updates selected city
     const handleChange = function(event) {
         setSelectCountry(event.target.value)
     }
-    // function for city input that updates state with value
+    // updates selected country
     const handleInput = function(e) {
         setSelectCity(e.target.value)
     }
@@ -33,11 +32,7 @@ function InputForm(props) {
     return (  
         <div className="formContainer">
             <h2>Choose a location</h2>
-            {/* form start */}
-            <form 
-            id="form"
-            className="inputForm" 
-            action=""
+            <form id="form" className="inputForm" action=""
             onSubmit={handleUserSelect}
             >
                 <label htmlFor="city" className="sr-only">Enter city name</label>
@@ -54,6 +49,7 @@ function InputForm(props) {
                         {/* country options ************** */}
                         <option value="placeholder" disabled>Choose country:</option>
                         {
+                            // looping of array from CountriesList.js to populate an option with both country name and country code for value
                             countryList.map(function(singleCountry, index) {
                                 return (
                                     <option key={index} value={singleCountry.code}>{singleCountry.name}</option>
@@ -63,7 +59,6 @@ function InputForm(props) {
                     </select>
                 </div>
                 <div className="buttonContainer">
-                    {/* <button type="button">°C / °F</button> */}
                     <button>submit</button>
                 </div>
             </form>

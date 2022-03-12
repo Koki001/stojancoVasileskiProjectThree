@@ -52,7 +52,6 @@ const countryList = [
     { "code": "CO", "code3": "COL", "name": "Colombia", "number": "170" },
     { "code": "KM", "code3": "COM", "name": "Comoros", "number": "174" },
     { "code": "CD", "code3": "COD", "name": "Congo (D.R.)", "number": "180" },
-    // { "code": "CG", "code3": "COG", "name": "Congo", "number": "178" },
     { "code": "CK", "code3": "COK", "name": "Cook Islands", "number": "184" },
     { "code": "CR", "code3": "CRI", "name": "Costa Rica", "number": "188" },
     { "code": "HR", "code3": "HRV", "name": "Croatia", "number": "191" },
@@ -187,7 +186,6 @@ const countryList = [
     { "code": "RW", "code3": "RWA", "name": "Rwanda", "number": "646" },
     { "code": "RE", "code3": "REU", "name": "Réunion", "number": "638" },
     { "code": "BL", "code3": "BLM", "name": "Saint Barthélemy", "number": "652" },
-    // { "code": "SH", "code3": "SHN", "name": "Saint Helena, Ascension and Tristan da Cunha", "number": "654" },
     { "code": "KN", "code3": "KNA", "name": "Saint Kitts and Nevis", "number": "659" },
     { "code": "LC", "code3": "LCA", "name": "Saint Lucia", "number": "662" },
     { "code": "MF", "code3": "MAF", "name": "Saint Martin (French part)", "number": "663" },
@@ -208,7 +206,6 @@ const countryList = [
     { "code": "SB", "code3": "SLB", "name": "Solomon Islands", "number": "090" },
     { "code": "SO", "code3": "SOM", "name": "Somalia", "number": "706" },
     { "code": "ZA", "code3": "ZAF", "name": "South Africa", "number": "710" },
-    // { "code": "GS", "code3": "SGS", "name": "South Georgia and the South Sandwich Islands", "number": "239" },
     { "code": "SS", "code3": "SSD", "name": "South Sudan", "number": "728" },
     { "code": "ES", "code3": "ESP", "name": "Spain", "number": "724" },
     { "code": "LK", "code3": "LKA", "name": "Sri Lanka", "number": "144" },
@@ -252,5 +249,4 @@ const countryList = [
     { "code": "ZW", "code3": "ZWE", "name": "Zimbabwe", "number": "716" },
     { "code": "AX", "code3": "ALA", "name": "Åland Islands", "number": "248" }
 ];
-
 export default countryList

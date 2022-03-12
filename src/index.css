@@ -34,9 +34,9 @@ body {
     background-repeat: no-repeat;
     font-family: 'News Cycle', sans-serif;
 }
-* {
+/* * {
     border: 1px solid red;
-}
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
