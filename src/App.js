@@ -5,6 +5,7 @@ import axios from "axios"
 import InputForm from "./InputForm";
 import WeatherDisplay from "./WeatherDisplay";
 import MultipleDays from "./MultipleDays";
+import CloudAnimation from './CloudAnimation';
 
 function App() {
 // Different useState() for the app
@@ -67,7 +68,7 @@ function App() {
     }
     return (
         <div className="App wrapper">
-            {/* <h1>Weather App</h1> */}
+            <CloudAnimation />
             <div className="mainContainer">
                 <InputForm handleSubmit={formSubmit} />
                 <WeatherDisplay 

@@ -4,7 +4,7 @@ function MultiDayDisplay(props) {
 
     return (
         
-        <div className="multipleDaysContainer" style={props.dayOne === undefined ? { display: "none", opacity: 0 } : { opacity: 1, display: "flex" }}>
+        <div className="multipleDaysContainer" style={props.dayOne === undefined ? { display: "none", opacity: 0 } : { opacity: 0.95, display: "flex" }}>
             {
                 // if props are not available, do not render
                 props.dayOne !== undefined

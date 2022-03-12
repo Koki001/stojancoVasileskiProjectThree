@@ -18,8 +18,8 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+ 
 }
-
 body {
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -27,17 +27,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    /* height:100vh; */
-    /* width:100vw; */
-
-    background:linear-gradient(130deg, #28425a, #32618a 35%, #376a96 85%, #4378a7);
+    background:linear-gradient(130deg, #35667c, #3a799e 35%, #376a96 85%, #4378a7);
     background-repeat: no-repeat;
     font-family: 'News Cycle', sans-serif;
 }
-/* * {
-    border: 1px solid red;
-} */
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

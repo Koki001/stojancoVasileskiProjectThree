@@ -4,6 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  position: relative;
+  z-index: 100000000;
 }
 .App h1 {
     font-size: 2rem;
@@ -16,7 +18,6 @@
 p {
     color: white;
 }
-
 h2 {
     color: black;
     margin: 0 0 30px 0;
@@ -24,7 +25,6 @@ h2 {
 h3 {
     margin: 0;
 }
-
 .formContainer {
     display: flex;
     flex-direction: column;
@@ -35,25 +35,20 @@ h3 {
     margin-bottom: 20px;
     min-width: 420px;
 }
-
 .formContainer h2 {
-    color: white;
+    color: black;
     font-size: 1.2rem;
     margin-bottom: 10px;
     text-align: left;
     width: 100%;
 }
-
 .inputForm {
     display: flex;
     justify-content: space-between;
     align-items:flex-end;
     border-radius: 8px;
-    /* background-color: #D8D0C5; */
     background-color: transparent;
-    /* padding: 10px; */
     min-width: 420px;
-   
 }
 .inputForm button {
     min-width: 90px;
@@ -65,7 +60,7 @@ h3 {
     box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background-color:#ffffff;
 	border-radius:6px;
-	border:1px solid #dcdcdc;
+	border:2px solid #DF8879;
 	display:inline-block;
 	cursor:pointer;
 	color:black;
@@ -84,13 +79,11 @@ h3 {
     justify-content: center;
     align-items: flex-end;
 }
-
 .inputsContainer {
     display: flex;
     flex-direction: column;
     font-size: 1rem;
 }
-
 .inputCity {
     margin-bottom: 5px;
     padding: 2px 5px;
@@ -101,9 +94,7 @@ h3 {
     border-bottom: 2px solid #DF8879;
     font-family: 'News Cycle', sans-serif;
     font-weight: bold;
-    
 }
-
 .formSelect {
     font-family: 'News Cycle', sans-serif;
     font-weight: bold;
@@ -114,15 +105,12 @@ h3 {
     border: none;
     border-radius: 8px;
     border-bottom: 2px solid #DF8879;
-    /* appearance: none; */
 }
 .formSelect option {
     font-family: 'News Cycle', sans-serif;
     font-size: 0.85rem;
     border-bottom: 2px solid #DF8879;
-    
 }
-
 .mainContainer {
     display: flex;
     justify-content: center;
@@ -139,7 +127,6 @@ h3 {
    flex-direction: column;
    align-items: center;
    justify-content: space-between;
-   /* padding: 100px 50px; */
    min-width: 420px;
    height: 55vh;
    padding: 30px 0px 50px 0;
@@ -147,20 +134,17 @@ h3 {
    transition: all 0.5s linear;
 }
 .trueFlip {
-    /* transform: rotateY(360deg); */
     animation-name: blink;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
     opacity: 1;
 }
 .falseFlip {
-    /* transform: rotateY(360deg); */
     animation-name: blinkTwo;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
     opacity: 1;
 }
-
 .iconImage {
     position: absolute;
     top: 130px;
@@ -168,11 +152,9 @@ h3 {
     height: 100px;
     width: 100px;
 }
-
 .cityName {
     margin-right: 15px;
 }
-
 .forecastDisplay {
     font-family: 'News Cycle', sans-serif;
     font-size: 7.5rem;
@@ -201,8 +183,6 @@ h3 {
     justify-content: space-evenly;
     margin-bottom: 10px;
 }
-
-
 .forecastInfo {
     display: flex;
     justify-content: center;
@@ -213,12 +193,10 @@ h3 {
     margin-bottom: 20px;
     font-size: 0.9rem;
 }
-
 .forecastDescription {
     text-transform: capitalize;
     font-size: 1.2rem;
 }
-
 .multipleDaysContainer {
     min-width: 420px;
     height: 55vh;
@@ -254,20 +232,17 @@ h3 {
 
     html {
         width: 100%;
-        
     }
-
     .App {
         flex-direction: column;
         align-items: center;
     }
-
     .multipleDaysContainer {
         margin-top: 20px;
     }
-
 }
 @media (max-width: 470px) {
+
     .mainContainer {
         min-width: 300px;
     }
@@ -301,3 +276,139 @@ h3 {
         font-size: 2.5rem;
     }
 }
+
+/* *************************************************** */
+/* CSS for animation by Mark Bowley, some changes made */
+#background-wrap {
+    bottom: 0;
+	left: 0;
+	padding-top: 150px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: -1;
+}
+/* KEYFRAMES */
+@-webkit-keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+@-moz-keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+@keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+/* ANIMATIONS */
+.x1 {
+	-webkit-animation: animateCloud 35s linear infinite;
+	-moz-animation: animateCloud 35s linear infinite;
+	animation: animateCloud 35s linear infinite;
+	
+	-webkit-transform: scale(0.65);
+	-moz-transform: scale(0.65);
+	transform: scale(0.65);
+}
+.x2 {
+	-webkit-animation: animateCloud 20s linear infinite;
+	-moz-animation: animateCloud 20s linear infinite;
+	animation: animateCloud 20s linear infinite;
+	
+	-webkit-transform: scale(0.3);
+	-moz-transform: scale(0.3);
+	transform: scale(0.3);
+}
+.x3 {
+	-webkit-animation: animateCloud 30s linear infinite;
+	-moz-animation: animateCloud 30s linear infinite;
+	animation: animateCloud 30s linear infinite;
+	
+	-webkit-transform: scale(0.5);
+	-moz-transform: scale(0.5);
+	transform: scale(0.5);
+}
+.x4 {
+	-webkit-animation: animateCloud 18s linear infinite;
+	-moz-animation: animateCloud 18s linear infinite;
+	animation: animateCloud 18s linear infinite;
+	
+	-webkit-transform: scale(0.4);
+	-moz-transform: scale(0.4);
+	transform: scale(0.4);
+}
+.x5 {
+	-webkit-animation: animateCloud 25s linear infinite;
+	-moz-animation: animateCloud 25s linear infinite;
+	animation: animateCloud 25s linear infinite;
+	
+	-webkit-transform: scale(0.55);
+	-moz-transform: scale(0.55);
+	transform: scale(0.55);
+}
+/* OBJECTS */
+.cloud {
+	background: #fff;
+	background: -moz-linear-gradient(top,  #fff 5%, #f1f1f1 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#fff), color-stop(100%,#f1f1f1));
+	background: -webkit-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	background: -o-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	background: -ms-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	background: linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#f1f1f1',GradientType=0 );
+	
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	
+	-webkit-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+
+	height: 120px;
+	position: relative;
+	width: 350px;
+}
+.cloud:after, .cloud:before {
+    background: #fff;
+	content: '';
+	position: absolute;
+	z-indeX: -1;
+}
+.cloud:after {
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+
+	height: 100px;
+	left: 50px;
+	top: -50px;
+	width: 100px;
+}
+.cloud:before {
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+	border-radius: 200px;
+
+	width: 180px;
+	height: 180px;
+	right: 50px;
+	top: -90px;
+}
+
+
+
+

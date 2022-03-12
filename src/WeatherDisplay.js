@@ -20,7 +20,7 @@ function WeatherDisplay(props) {
     return (
         // in order for this section to keep its footprint, its visibility is hidden until props are available from parent
         // opacity added just for a smoother transition effect
-        <div className={`weatherDisplayContainer ${classTest}`} style={props.city === "" ? { visibility: "hidden", opacity: 0 } : { opacity: 1, visibility: "visible", backgroundImage: `url("/${cardImage}.png")`}}>
+        <div className={`weatherDisplayContainer ${classTest}`} style={props.city === "" ? { visibility: "hidden", opacity: 0 } : { opacity: 0.95, visibility: "visible", backgroundImage: `url("/${cardImage}.png")`}}>
         {props.city !== "" ? <img className="iconImage" src={icon} alt="" /> : null}      
                
             <div className="forecastInfo">
