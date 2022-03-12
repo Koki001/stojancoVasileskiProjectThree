@@ -58,7 +58,7 @@ function App() {
                 } 
             })
         } 
-    }, [citySelection])
+    }, [citySelection, countrySelection])
     // sumbit for handle from InputForm.js 
     const formSubmit = function(e, chosenCountry, chosenCity) {
         e.preventDefault()

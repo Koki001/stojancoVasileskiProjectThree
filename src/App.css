@@ -294,4 +294,10 @@ h3 {
         min-width: calc(160px - 10px);
         min-height: calc(90% / 2);
     }
+    .forecastDisplay {
+        font-size: 6rem;
+    }
+    .tempUnits {
+        font-size: 2.5rem;
+    }
 }
