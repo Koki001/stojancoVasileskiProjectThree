@@ -16,7 +16,6 @@ function WeatherDisplay(props) {
     const temp = props.forecast
     let icon = `http://openweathermap.org/img/wn/${props.weatherIcon.icon}@2x.png`
     let cardImage = props.weatherIcon.main
-    
     return (
         <div className={`weatherDisplayContainer ${classTest}`} style={props.city === "" ? { visibility: "hidden", opacity: 0 } : { opacity: 1, visibility: "visible", backgroundImage: `url("/${cardImage}.png")`}}>
 

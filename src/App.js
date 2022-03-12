@@ -13,9 +13,11 @@ function App() {
     const [weatherIconDesc, setWeatherIconDesc] = useState([])
     const [mainTempStats, setMainTempStats] = useState ({})
     const [localTime, setLocalTime] = useState(null)
+    const [coordinates, setCoordinates] = useState (null)
 
     useEffect(function() {
 
+        // do not run api call if no city selection
         if (citySelection !== "") {
 
             axios ({
@@ -26,36 +28,35 @@ function App() {
                     units: "metric"
                 }
             }).then(function(weatherData) {
-                console.log(weatherData)
-
+                console.log("SINGLE CITY RETURN", weatherData)
+                
+                // convert api info of selected city to respective local time 
                 const getTime = function() {
                     const apiZone = weatherData.data.timezone
                     const testTime = new Date()
                     const utc = testTime.getTime() + (testTime.getTimezoneOffset() * 60000);
                     const nd = new Date(utc + (1000 * apiZone));
                     const local = `${nd.getHours() + ":" + (nd.getMinutes() < 10 ? '0' : '') + nd.getMinutes() + ":" + (nd.getSeconds() < 10 ? '0' : '') + nd.getSeconds()}`
-                    console.log(local)
                     return local
                 }
                 getTime()
+
+                // extract info into states
                 setLocalTime(getTime())
                 setWindSpeed(weatherData.data.wind.speed)
                 setWeatherIconDesc(weatherData.data.weather[0])
                 setMainTempStats(weatherData.data.main)
+                setCoordinates(weatherData.data.coord)
 
                 // error handling for no API return *****
             }).catch(function(error) {
                 if (error.response) {
+                    setCitySelection("")
                     alert("city doesn't exist")
-                    console.log(error)
                 } else if (error.request){
                     console.log("no error")
-                } else {
                 } 
             })
-            
-        } else {
-
         }
     }, [citySelection, countrySelection])
 
@@ -83,8 +84,7 @@ function App() {
             />
         </div>
             <MultipleDays 
-            city={citySelection}
-            country={countrySelection}
+            coords={coordinates}
             />
     </div>
   );

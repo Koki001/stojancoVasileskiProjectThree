@@ -5,26 +5,24 @@ import MultiDayDisplay from "./MultiDayDisplay";
 
 const MultipleDays = function(props) {
     
+    const [dailyObjects, setDailyObjects] = useState({})
 
-    const [arrayOfCities, setArrayOfCities] = useState("")
- 
     useEffect(function () {
-
-        if (props.city !== "") {
-
+        if (props.coords !== null) {
             axios({
-                url: "https://api.openweathermap.org/data/2.5/forecast",
+                url: "https://api.openweathermap.org/data/2.5/onecall",
                 params: {
                     appid: "10d5f31200cc3f2c32cc4ea5001bd6d6",
-                    q: `${props.city}, ${props.country}`,
+                    lat: `${props.coords.lat}`,
+                    lon: `${props.coords.lon}`,
                     units: "metric",
-                    mode: "json",
-                    cnt: "32"
+                    exclude: "current,minutely,hourly,alerts"
+
                 }
             }).then(function (multiDay) {
-                console.log(multiDay)
-                setArrayOfCities(multiDay.data.list)
-              
+                console.log("MULTI DAY RETURN", multiDay)
+
+                setDailyObjects(multiDay.data.daily)
                 // error handling for no API return *****
             }).catch(function (error) {
                 if (error.response) {
@@ -35,21 +33,23 @@ const MultipleDays = function(props) {
                 } else {
                 }
             })
-
-        } else {
-
         }
-    }, [props.city, props.country])
-    
-    
+    }, [props.coords])
     
     return (
         <div>
             {
-                arrayOfCities === ""
-                ? null
-                : <MultiDayDisplay temp={arrayOfCities}/>
+                props.coords !== null
+                ?
+                <MultiDayDisplay 
+                dayOne={dailyObjects[1]}
+                dayTwo={dailyObjects[2]}
+                dayThree={dailyObjects[3]}
+                dayFour={dailyObjects[4]}
+                />
+                : null
             }
+            
         </div>
     )
     
