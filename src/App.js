@@ -3,19 +3,20 @@ import { useEffect, useState } from "react";
 import './App.css';
 import InputForm from "./InputForm";
 import WeatherDisplay from "./WeatherDisplay";
+import MultipleDays from "./MultipleDays";
 
 function App() {
 // Different useState() for the app
     const [citySelection, setCitySelection] = useState("")
     const [countrySelection, setCountrySelection] = useState("")
-    const [weatherDisplay, setWeatherDisplay] = useState("")
     const [windSpeed, setWindSpeed] = useState("")
-    const [weatherIcon, setWeatherIcon] = useState("")
+    const [weatherIconDesc, setWeatherIconDesc] = useState([])
+    const [mainTempStats, setMainTempStats] = useState ({})
+    const [localTime, setLocalTime] = useState(null)
 
-    
     useEffect(function() {
 
-        if (citySelection != "") {
+        if (citySelection !== "") {
 
             axios ({
                 url: "https://api.openweathermap.org/data/2.5/weather",
@@ -29,17 +30,19 @@ function App() {
 
                 const getTime = function() {
                     const apiZone = weatherData.data.timezone
-                    const timeZone = (apiZone / 3600)
-                    const today = new Date()
-                    console.log("this is date", today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate())
-                    console.log("this is local time", today.getHours() + ":" + (today.getMinutes() < 10 ? '0' : '') + today.getMinutes() + ":" + today.getSeconds())
-                    console.log("this is time zone", timeZone)
+                    const testTime = new Date()
+                    const utc = testTime.getTime() + (testTime.getTimezoneOffset() * 60000);
+                    const nd = new Date(utc + (1000 * apiZone));
+                    const local = `${nd.getHours() + ":" + (nd.getMinutes() < 10 ? '0' : '') + nd.getMinutes() + ":" + (nd.getSeconds() < 10 ? '0' : '') + nd.getSeconds()}`
+                    console.log(local)
+                    return local
                 }
                 getTime()
-
-                setWeatherDisplay(weatherData.data.main.temp)
+                setLocalTime(getTime())
                 setWindSpeed(weatherData.data.wind.speed)
-                setWeatherIcon(weatherData.data.weather[0].icon)
+                setWeatherIconDesc(weatherData.data.weather[0])
+                setMainTempStats(weatherData.data.main)
+
                 // error handling for no API return *****
             }).catch(function(error) {
                 if (error.response) {
@@ -61,20 +64,28 @@ function App() {
         setCountrySelection(chosenCountry)
         setCitySelection(chosenCity)
     }
- 
+
+
   return (
     <div className="App wrapper">
-        <h1>Weather App</h1>
+        {/* <h1>Weather App</h1> */}
         <div className="mainContainer">
             <InputForm handleSubmit={formSubmit} />
             <WeatherDisplay 
-            forecast={weatherDisplay}
+            time={localTime}
+            forecast={mainTempStats.temp}
             city={citySelection}
             country={countrySelection}
             windSpeed={windSpeed}
-            weatherIcon={weatherIcon}
+            weatherIcon={weatherIconDesc}
+            min={mainTempStats.temp_min}
+            max={mainTempStats.temp_max}
             />
         </div>
+            <MultipleDays 
+            city={citySelection}
+            country={countrySelection}
+            />
     </div>
   );
 }
