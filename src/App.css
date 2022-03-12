@@ -244,6 +244,46 @@ h3 {
 @media (max-width: 470px) {
 
     .mainContainer {
+        
+        min-width: 350px;
+    }
+    .formContainer {
+        min-width: 350px;
+        padding: 0;
+    }
+    .formContainer h2 {
+        text-align: center;
+    }
+    .inputForm {
+        min-width: 350px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .inputForm button {
+        margin-top: 5px;
+    }
+    .weatherDisplayContainer {
+        min-width: 350px;
+        
+    }
+    .multipleDaysContainer {
+        min-width: 350px;
+        justify-content: space-around;
+    }
+    .multiDay {
+        min-width: calc(190px - 25px);
+        min-height: calc(95% / 2);
+    }
+    .forecastDisplay {
+        font-size: 6rem;
+    }
+    .tempUnits {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 380px) {
+
+    .mainContainer {
         min-width: 300px;
     }
     .formContainer {
@@ -262,22 +302,19 @@ h3 {
         margin-top: 5px;
     }
     .weatherDisplayContainer {
-        min-width: 290px;
+        min-width: 300px;
+        
     }
     .multipleDaysContainer {
         min-width: 300px;
         justify-content: space-around;
     }
     .multiDay {
-        min-width: calc(160px - 30px);
-        min-height: calc(90% / 2);
+        min-width: calc(160px - 20px);
+        min-height: calc(95% / 2);
     }
-    .forecastDisplay {
-        font-size: 6rem;
-    }
-    .tempUnits {
-        font-size: 2.5rem;
-    }
+
+
 }
 
 /* **************************************************** */
