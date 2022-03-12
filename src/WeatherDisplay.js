@@ -18,31 +18,23 @@ function WeatherDisplay(props) {
     let cardImage = props.weatherIcon.main
     return (
         <div className={`weatherDisplayContainer ${classTest}`} style={props.city === "" ? { visibility: "hidden", opacity: 0 } : { opacity: 1, visibility: "visible", backgroundImage: `url("/${cardImage}.png")`}}>
-
             {props.city !== "" ? <img className="iconImage" src={icon} alt="" /> : null}      
-
+               
                 <div className="forecastInfo">
                     <p className='cityName' style={props.city === "" ? { visibility: "hidden" } : { visibility: "visible"}}>
-
                         {props.city === "" ? "City Name" : props.city + ","}
-
                     </p>
                     <p className="countryName" style={props.country === "" ? { visibility: "hidden" } : { visibility: "visible" }}>
-
                         {props.country === "" ? "ZZ" : props.country}
-
                     </p>
                 </div>
                 <p className="localTime">Local Time: {props.time}</p>
                 <p className="forecastDescription" style={props.weatherIcon.description === "" ? { visibility: "hidden" } : { visibility: "visible" }}>
-
                         {props.weatherIcon.description}
-                        
                 </p>
-
-            <div className="weatherResult">
-                <p className='forecastDisplay'>{Number(temp).toFixed(1)} <span className="tempUnits">°C</span></p>
-            </div>
+                <div className="weatherResult">
+                    <p className='forecastDisplay'>{Number(temp).toFixed(1)} <span className="tempUnits">°C</span></p>
+                </div>
             <ExtraWeatherInfo
             wind={props.windSpeed}
             minTemp={props.min}

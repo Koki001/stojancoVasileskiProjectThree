@@ -1,2 +1,0 @@
-// CurrentTime.js
-

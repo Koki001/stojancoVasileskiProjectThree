@@ -13,7 +13,7 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 html {
     font-size: 125%;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -34,9 +34,9 @@ body {
     background-repeat: no-repeat;
     font-family: 'News Cycle', sans-serif;
 }
-/* * {
+* {
     border: 1px solid red;
-} */
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
