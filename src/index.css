@@ -27,8 +27,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    background:linear-gradient(130deg, #35667c, #3a799e 35%, #376a96 85%, #4378a7);
+    background-image: url("https://i.postimg.cc/wv4Dvdm2/bg.png");
     background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'News Cycle', sans-serif;
 }
 code {

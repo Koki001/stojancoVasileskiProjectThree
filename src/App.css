@@ -250,6 +250,9 @@ h3 {
         min-width: 300px;
         padding: 0;
     }
+    .formContainer h2 {
+        text-align: center;
+    }
     .inputForm {
         min-width: 300px;
         flex-direction: column;
@@ -259,14 +262,14 @@ h3 {
         margin-top: 5px;
     }
     .weatherDisplayContainer {
-        min-width: 300px;
+        min-width: 290px;
     }
     .multipleDaysContainer {
         min-width: 300px;
         justify-content: space-around;
     }
     .multiDay {
-        min-width: calc(160px - 10px);
+        min-width: calc(160px - 30px);
         min-height: calc(90% / 2);
     }
     .forecastDisplay {
@@ -277,7 +280,7 @@ h3 {
     }
 }
 
-/* *************************************************** */
+/* **************************************************** */
 /* CSS for animation by Mark Bowley, some changes made */
 #background-wrap {
     bottom: 0;

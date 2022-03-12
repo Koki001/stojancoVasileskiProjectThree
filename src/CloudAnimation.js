@@ -26,6 +26,7 @@ function CloudAnimation() {
                     <div className="cloud"></div>
                 </div>
             </div>
+  
         </>
     )
 }
