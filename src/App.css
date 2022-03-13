@@ -255,6 +255,9 @@ footer a {
     font-weight: bolder;
     color: black;
 }
+footer a:hover {
+    color: orangered;
+}
 
 @keyframes blink {
 	0% {opacity: 0}
