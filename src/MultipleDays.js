@@ -35,7 +35,7 @@ const MultipleDays = function(props) {
         <div>
             {/* if coordinates from parent are unavailable, do not render component */}
             {
-                props.coords !== null
+                props.coords !== null && props.cityCheck !== ""
                 ?
                 <MultiDayDisplay 
                 dayOne={dailyObjects[1]}

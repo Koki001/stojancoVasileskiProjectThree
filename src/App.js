@@ -7,6 +7,7 @@ import WeatherDisplay from "./WeatherDisplay";
 import MultipleDays from "./MultipleDays";
 import CloudAnimation from './CloudAnimation';
 import Footer from './Footer';
+import PopupBox from './PopupBox';
 
 function App() {
 // Different useState() for the app
@@ -30,8 +31,11 @@ function App() {
                     units: "metric"
                 }
             }).then(function(weatherData) {
+                console.log("SINGLE CARD API CALL", weatherData)
                 // ensures false initial state if API is called
-                setApiError(false)
+                if (apiError === true) {
+                    setApiError(false)
+                }
                 // convert api info of selected city to respective local time 
                 const getTime = function() {
                     const apiZone = weatherData.data.timezone
@@ -54,24 +58,39 @@ function App() {
                     setCitySelection("")
                     setCountrySelection("")
                     setApiError(true)
-                    alert("Invalid city name or not in selected country")
                 } else {
-                    
+                   
                 } 
             })
         } 
     }, [citySelection, countrySelection])
-    // sumbit for handle from InputForm.js 
+    // sumbit form handle from InputForm.js 
     const formSubmit = function(e, chosenCountry, chosenCity) {
         e.preventDefault()
         setCountrySelection(chosenCountry)
         setCitySelection(chosenCity)
     }
+    // click event in PopupBox component that resets API error here
+    const popupClick = function(e, click){
+        e.preventDefault()
+        setApiError(click)
+    }
+    console.log("error from API call", apiError)
     return (
         <div className="App wrapper">
             <h1>WeatherPal</h1>
             <div className="bodyLayer"></div>
-            <CloudAnimation />
+            <CloudAnimation err={apiError}/>
+            {/* if API error state is true, show component */}
+            {
+                apiError === true
+                ?
+                <PopupBox 
+                click={popupClick}
+                />
+                : null
+            }
+
             <main>
                 <div className="mainContainer">
                     <InputForm handleSubmit={formSubmit} />
@@ -91,6 +110,7 @@ function App() {
                     apiError === false
                     ?
                     <MultipleDays
+                    cityCheck={citySelection}
                     coords={coordinates}
                     />
                     : null
