@@ -1,13 +1,16 @@
 // InputForm.js
 import {useState} from "react"
 import countryList from "./CountriesList"
-import PopupBox from "./PopupBox"
+import PopupCity from "./PopupCity"
+import PopupCountry from "./PopupCountry"
 
 function InputForm(props) {
 
     // states used in submit function to update main API call states
     const [selectCountry, setSelectCountry] = useState("placeholder")
     const [selectCity, setSelectCity] = useState("")
+    const [cityError, setCityError] = useState(false)
+    const [countryError, setCountryError] = useState(false)
     // updates selected city
     const handleChange = function(event) {
         setSelectCountry(event.target.value)
@@ -20,9 +23,9 @@ function InputForm(props) {
     const handleUserSelect = function(e) {
         e.preventDefault()
         if (selectCity === "") {
-            alert("please enter city name")
+            setCityError(true)
         } else if (selectCountry === "placeholder") {
-            alert("please select country")
+            setCountryError(true)
         } else {
             props.handleSubmit(e, selectCountry, selectCity)
             // setSelectCountry("placeholder")
@@ -30,8 +33,34 @@ function InputForm(props) {
         }
     }
 
+    const popupCityClick = function (e, click) {
+        e.preventDefault()
+        setCityError(click)
+    }
+    const popupCountryClick = function (e, click) {
+        e.preventDefault()
+        setCountryError(click)
+    }
+
+
     return (  
         <div className="formContainer">
+            {
+                cityError === true
+                ?
+                <PopupCity 
+                click={popupCityClick}
+                />
+                : null
+            }
+            {
+                countryError === true
+                    ?
+                    <PopupCountry
+                        click={popupCountryClick}
+                    />
+                    : null
+            }
             <h2>Choose a location</h2>
             <form id="form" className="inputForm" action=""
             onSubmit={handleUserSelect}

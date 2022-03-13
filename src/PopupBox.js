@@ -17,7 +17,7 @@ const PopupBox = function(props) {
             <div className="popup">
                 <div className="popupContainer">
                     <h2>Oops!</h2>
-                    <p>Sorry, we could not find any results. Please check your city spelling and select the correct country for your destination.</p>
+                    <p>Sorry, we could not find any results. Please check the spelling of your city and select the correct country for your destination.</p>
                     <button onClick={handleClick} className="popupOk">OK</button>
                 </div>
             </div>
