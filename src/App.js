@@ -69,7 +69,7 @@ function App() {
     }
     return (
         <div className="App wrapper">
-            
+            <h1>WeatherPal</h1>
             <div className="bodyLayer"></div>
             <CloudAnimation />
             <main>
