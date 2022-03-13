@@ -366,8 +366,8 @@ footer a:hover {
         
     }
     .multipleDaysContainer img {
-    width: 70px;
-    height: 70px;
+        width: 70px;
+        height: 70px;
     }
     .multipleDaysContainer {
         min-width: 350px;
@@ -387,7 +387,10 @@ footer a:hover {
         width: 95vw;
     }
     .popup h2 {
-    font-size: 3rem;
+        font-size: 3rem;
+    }
+    .popup p {
+        font-size: 1.1rem;
     }
 }
 @media (max-width: 380px) {
@@ -427,6 +430,9 @@ footer a:hover {
     }
     .popup h2 {
     font-size: 2.5rem;
+    }
+    .popup p {
+        font-size: 1rem;
     }
 }
 
