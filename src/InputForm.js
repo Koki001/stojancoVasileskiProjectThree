@@ -48,6 +48,9 @@ function InputForm(props) {
                     >
                         {/* country options ************** */}
                         <option value="placeholder" disabled>Choose country:</option>
+                        <option value="CA">Canada</option>
+                        <option value="US">United States</option>
+                        <option className="countryBreak" value="placeholder" disabled></option>
                         {
                             // looping of array from CountriesList.js to populate an option with both country name and country code for value
                             countryList.map(function(singleCountry, index) {

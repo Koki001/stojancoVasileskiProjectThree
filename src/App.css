@@ -1,11 +1,13 @@
 
 .App {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  position: relative;
-  z-index: 100000000;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 100;
+    min-width: 100%;
 }
 .App h1 {
     font-size: 2rem;
@@ -14,6 +16,13 @@
 .wrapper {
     max-width: 1600px;
     margin: 0 auto;
+}
+main {
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 p {
     color: white;
@@ -60,7 +69,7 @@ h3 {
     box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background-color:#ffffff;
 	border-radius:6px;
-	border:2px solid #DF8879;
+	border:2px solid rgb(0, 0, 0);
 	display:inline-block;
 	cursor:pointer;
 	color:black;
@@ -91,7 +100,7 @@ h3 {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     border: none;
-    border-bottom: 2px solid #DF8879;
+    border-bottom: 2px solid black;
     font-family: 'News Cycle', sans-serif;
     font-weight: bold;
 }
@@ -104,13 +113,14 @@ h3 {
     background-color: rgba(255, 255, 255, 0.5);
     border: none;
     border-radius: 8px;
-    border-bottom: 2px solid #DF8879;
+    border-bottom: 2px solid black;
 }
 .formSelect option {
     font-family: 'News Cycle', sans-serif;
     font-size: 0.85rem;
-    border-bottom: 2px solid #DF8879;
+    border-bottom: 2px solid black;
 }
+
 .mainContainer {
     display: flex;
     justify-content: center;
@@ -206,7 +216,25 @@ h3 {
     justify-content: space-between;
     align-items: center;
 }
+.multipleDaysContainer img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.multiDate {
+    font-size: 1.5rem;
+}
+.multiMaxTemp {
+    font-size: 1.3rem;
+    text-align: right;
+    width: 100%;
+}
+.multiMinTemp {
+    text-align: right;
+    width: 100%;
+}
 .multiDay {
+    position: relative;
     min-width: calc(210px - 20px);
     min-height: calc(100% / 2 - 10px);
     background-repeat: no-repeat;
@@ -214,9 +242,18 @@ h3 {
     transition: all 0.5s linear;
     border-radius: 8px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-end;
     flex-direction: column;
+    padding: 15px 10px;
+}
+footer {
+    padding: 80px 0 10px 0;
+}
+footer a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
 }
 
 @keyframes blink {
@@ -227,13 +264,12 @@ h3 {
 	0% {opacity: 0}
     100% {opacity: 1}
 }
-
 @media (max-width: 870px) {
 
     html {
         width: 100%;
     }
-    .App {
+    main {
         flex-direction: column;
         align-items: center;
     }
@@ -244,7 +280,6 @@ h3 {
 @media (max-width: 470px) {
 
     .mainContainer {
-        
         min-width: 350px;
     }
     .formContainer {
@@ -265,6 +300,10 @@ h3 {
     .weatherDisplayContainer {
         min-width: 350px;
         
+    }
+    .multipleDaysContainer img {
+    width: 70px;
+    height: 70px;
     }
     .multipleDaysContainer {
         min-width: 350px;
@@ -303,7 +342,10 @@ h3 {
     }
     .weatherDisplayContainer {
         min-width: 300px;
-        
+    }
+    .multipleDaysContainer img {
+    width: 50px;
+    height: 50px;
     }
     .multipleDaysContainer {
         min-width: 300px;
@@ -313,8 +355,6 @@ h3 {
         min-width: calc(160px - 20px);
         min-height: calc(95% / 2);
     }
-
-
 }
 
 /* **************************************************** */

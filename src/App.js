@@ -6,6 +6,7 @@ import InputForm from "./InputForm";
 import WeatherDisplay from "./WeatherDisplay";
 import MultipleDays from "./MultipleDays";
 import CloudAnimation from './CloudAnimation';
+import Footer from './Footer';
 
 function App() {
 // Different useState() for the app
@@ -68,29 +69,34 @@ function App() {
     }
     return (
         <div className="App wrapper">
+            
+            <div className="bodyLayer"></div>
             <CloudAnimation />
-            <div className="mainContainer">
-                <InputForm handleSubmit={formSubmit} />
-                <WeatherDisplay 
-                time={localTime}
-                forecast={mainTempStats.temp}
-                city={citySelection}
-                country={countrySelection}
-                windSpeed={windSpeed}
-                weatherIcon={weatherIconDesc}
-                min={mainTempStats.temp_min}
-                max={mainTempStats.temp_max}
-                />
-            </div>
-            {/* if API changes error state to true, do not render component */}
-            {
-                apiError === false 
-                ?   
-                <MultipleDays
-                coords={coordinates}
-                />
-                : null
-            }
+            <main>
+                <div className="mainContainer">
+                    <InputForm handleSubmit={formSubmit} />
+                    <WeatherDisplay
+                    time={localTime}
+                    forecast={mainTempStats.temp}
+                    city={citySelection}
+                    country={countrySelection}
+                    windSpeed={windSpeed}
+                    weatherIcon={weatherIconDesc}
+                    min={mainTempStats.temp_min}
+                    max={mainTempStats.temp_max}
+                    />
+                </div>
+                {/* if API changes error state to true, do not render component */}
+                {
+                    apiError === false
+                    ?
+                    <MultipleDays
+                    coords={coordinates}
+                    />
+                    : null
+                }
+            </main>
+            <Footer />
         </div>
     );
 }
