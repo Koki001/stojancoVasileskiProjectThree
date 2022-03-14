@@ -1,6 +1,7 @@
 // InputForm.js
 import {useState} from "react"
 import countryList from "./CountriesList"
+import FavoriteLocations from "./FavoriteLocations"
 import PopupCity from "./PopupCity"
 import PopupCountry from "./PopupCountry"
 
@@ -9,6 +10,7 @@ function InputForm(props) {
     // states used in submit function to update main API call states
     const [selectCountry, setSelectCountry] = useState("placeholder")
     const [selectCity, setSelectCity] = useState("")
+    // error handling states
     const [cityError, setCityError] = useState(false)
     const [countryError, setCountryError] = useState(false)
     // updates selected city
@@ -32,19 +34,20 @@ function InputForm(props) {
             setSelectCity("")
         }
     }
-
+    // error handling function that updates state using info from component
     const popupCityClick = function (e, click) {
         e.preventDefault()
         setCityError(click)
     }
+    // error handling function that updates state using info from component
     const popupCountryClick = function (e, click) {
         e.preventDefault()
         setCountryError(click)
     }
 
-
     return (  
         <div className="formContainer">
+            {/* popup box to handle empty city field */}
             {
                 cityError === true
                 ?
@@ -53,6 +56,7 @@ function InputForm(props) {
                 />
                 : null
             }
+            {/* popup box to handle country not selected */}
             {
                 countryError === true
                     ?
@@ -63,8 +67,7 @@ function InputForm(props) {
             }
             <h2>Choose a location</h2>
             <form id="form" className="inputForm" action=""
-            onSubmit={handleUserSelect}
-            >
+            onSubmit={handleUserSelect}>
                 <label htmlFor="city" className="sr-only">Enter city name</label>
                 {/* city input field */}
                 <div className="inputsContainer">
@@ -78,6 +81,7 @@ function InputForm(props) {
                     >
                         {/* country options ************** */}
                         <option value="placeholder" disabled>Choose country:</option>
+                        {/* most likely options to be used are removed from array loop and put at the top for easier access */}
                         <option value="CA">Canada</option>
                         <option value="US">United States</option>
                         <option className="countryBreak" value="placeholder" disabled></option>
@@ -92,9 +96,12 @@ function InputForm(props) {
                     </select>
                 </div>
                 <div className="buttonContainer">
-                    <button>submit</button>
+                    {/* <button type="button" className="favLocationsButton"><img src={"/gear.png"} /></button> */}
+                    <button className="submitButton">submit</button>
                 </div>
             </form>
+            {/* firebase stretch goal */}
+            {/* <FavoriteLocations /> */}
         </div>
     )
 }

@@ -31,18 +31,18 @@ function App() {
                     units: "metric"
                 }
             }).then(function(weatherData) {
-                console.log("SINGLE CARD API CALL", weatherData)
                 // ensures false initial state if API is called
                 if (apiError === true) {
                     setApiError(false)
                 }
-                // convert api info of selected city to respective local time 
+                // convert api info of selected city to respective local time
                 const getTime = function() {
                     const apiZone = weatherData.data.timezone
                     const testTime = new Date()
                     const utc = testTime.getTime() + (testTime.getTimezoneOffset() * 60000);
                     const nd = new Date(utc + (1000 * apiZone));
-                    const local = `${nd.getHours() + ":" + (nd.getMinutes() < 10 ? '0' : '') + nd.getMinutes() + ":" + (nd.getSeconds() < 10 ? '0' : '') + nd.getSeconds()}`
+                    // format time for display
+                    const local = `${nd.getHours() + ":" + (nd.getMinutes() < 10 ? '0' : '') + nd.getMinutes()}`
                     return local
                 }
                 getTime()
@@ -80,8 +80,9 @@ function App() {
         <div className="App wrapper">
             <h1>WeatherPal</h1>
             <div className="bodyLayer"></div>
-            <CloudAnimation err={apiError}/>
+            <CloudAnimation/>
             {/* if API error state is true, show component */}
+            {/* error handle for invalid city input or country mismatch */}
             {
                 apiError === true
                 ?
@@ -90,10 +91,11 @@ function App() {
                 />
                 : null
             }
-
             <main>
                 <div className="mainContainer">
+                    {/* city/country/submit component */}
                     <InputForm handleSubmit={formSubmit} />
+                    {/* main weather card component */}
                     <WeatherDisplay
                     time={localTime}
                     forecast={mainTempStats.temp}
@@ -106,6 +108,7 @@ function App() {
                     />
                 </div>
                 {/* if API changes error state to true, do not render component */}
+                {/* four day forecast component */}
                 {
                     apiError === false
                     ?

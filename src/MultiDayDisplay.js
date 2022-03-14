@@ -18,8 +18,8 @@ function MultiDayDisplay(props) {
                         })}</p>
                         <img src={`http://openweathermap.org/img/wn/${props.dayOne.weather[0].icon}@2x.png`} alt="" />
                         <div className="miniCardFlex">
-                            <p className="multiMaxTemp">↑ {props.dayOne.temp.max}°C</p>
-                            <p className="multiMinTemp">↓ {props.dayOne.temp.min}°C</p>
+                                <p className="multiMaxTemp">↑ {Number(props.dayOne.temp.max).toFixed(1)}°C</p>
+                                <p className="multiMinTemp">↓ {Number(props.dayOne.temp.min).toFixed(1)}°C</p>
                         </div>
                     </div>
                     {/* dayThree is here before dayTwo due to how my display:flex is set up */}
@@ -29,8 +29,8 @@ function MultiDayDisplay(props) {
                         })}</p>
                         <img src={`http://openweathermap.org/img/wn/${props.dayThree.weather[0].icon}@2x.png`} alt="" />
                         <div className="miniCardFlex">
-                            <p className="multiMaxTemp">↑ {props.dayThree.temp.max}°C</p>
-                            <p className="multiMinTemp">↓ {props.dayThree.temp.min}°C</p>
+                                <p className="multiMaxTemp">↑ {Number(props.dayThree.temp.max).toFixed(1)}°C</p>
+                                <p className="multiMinTemp">↓ {Number(props.dayThree.temp.min).toFixed(1)}°C</p>
                         </div>
                     </div>
                     <div className="dayTwo multiDay" style={{ backgroundImage: `url("/${props.dayTwo.weather[0].main}.png")` }}>
@@ -39,8 +39,8 @@ function MultiDayDisplay(props) {
                         })}</p>
                         <img src={`http://openweathermap.org/img/wn/${props.dayTwo.weather[0].icon}@2x.png`} alt="" />
                         <div className="miniCardFlex">
-                            <p className="multiMaxTemp">↑ {props.dayTwo.temp.max}°C</p>
-                            <p className="multiMinTemp">↓ {props.dayTwo.temp.min}°C</p>
+                                <p className="multiMaxTemp">↑ {Number(props.dayTwo.temp.max).toFixed(1)}°C</p>
+                                <p className="multiMinTemp">↓ {Number(props.dayTwo.temp.min).toFixed(1)}°C</p>
                         </div>
                     </div>
                     <div className="dayFour multiDay" style={{ backgroundImage: `url("/${props.dayFour.weather[0].main}.png")` }}>
@@ -49,8 +49,8 @@ function MultiDayDisplay(props) {
                         })}</p>
                         <img src={`http://openweathermap.org/img/wn/${props.dayFour.weather[0].icon}@2x.png`} alt="" />
                         <div className="miniCardFlex">
-                            <p className="multiMaxTemp">↑ {props.dayFour.temp.max}°C</p>
-                            <p className="multiMinTemp">↓ {props.dayFour.temp.min}°C</p>
+                                <p className="multiMaxTemp">↑ {Number(props.dayFour.temp.max).toFixed(1)}°C</p>
+                                <p className="multiMinTemp">↓ {Number(props.dayFour.temp.min).toFixed(1)}°C</p>
                         </div>
                     </div>
                 </>

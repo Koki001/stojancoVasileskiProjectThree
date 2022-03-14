@@ -14,6 +14,7 @@
     font-size: 2rem;
     color: black;
     margin: 0;
+    letter-spacing: 3px;
 }
 .wrapper {
     max-width: 1600px;
@@ -113,6 +114,7 @@ h3 {
     border-radius: 8px;
     background-color: transparent;
     min-width: 420px;
+    position: relative;
 }
 .inputForm button {
     min-width: 90px;
@@ -133,9 +135,31 @@ h3 {
     background:linear-gradient(to bottom, #e0dfdf 5%, #ddd9d9 100%);
 	background-color:#f6f6f6;
 }
-.inputForm button:active {
-    position:relative;
-	top:1px;
+.inputForm .submitButton:active {
+    position: relative;
+    top: 1px;
+}
+
+.favLocationsButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.favLocationsButton:active {
+    top: 1px;
+}
+.favLocationsButton img {
+    height: 100%;
+}
+.favLocationsContainer {
+    height: 70vh;
+    width: 60vw;
+    background-color: rgba(0, 0, 0, 0.767);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
 }
 .buttonContainer {
     display: flex;
@@ -197,18 +221,6 @@ h3 {
    padding: 30px 0px 50px 0;
    border-radius: 8px;
    transition: all 0.5s linear;
-}
-.trueFlip {
-    animation-name: blink;
-    animation-duration: 1.5s;
-    animation-iteration-count: 1;
-    opacity: 1;
-}
-.falseFlip {
-    animation-name: blinkTwo;
-    animation-duration: 1.5s;
-    animation-iteration-count: 1;
-    opacity: 1;
 }
 .iconImage {
     position: absolute;
