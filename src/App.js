@@ -13,12 +13,9 @@ function App() {
 // Different useState() for the app
     const [citySelection, setCitySelection] = useState("")
     const [countrySelection, setCountrySelection] = useState("")
-    const [windSpeed, setWindSpeed] = useState("")
-    const [weatherIconDesc, setWeatherIconDesc] = useState([])
-    const [mainTempStats, setMainTempStats] = useState ({})
     const [localTime, setLocalTime] = useState(null)
-    const [coordinates, setCoordinates] = useState (null)
     const [apiError, setApiError] = useState(false)
+    const [weatherInfo, setWeatherInfo] = useState({})
 
     useEffect(function() {
         // do not run api call if no city selection
@@ -48,10 +45,7 @@ function App() {
                 getTime()
                 // extract info into states
                 setLocalTime(getTime())
-                setWindSpeed(weatherData.data.wind.speed)
-                setWeatherIconDesc(weatherData.data.weather[0])
-                setMainTempStats(weatherData.data.main)
-                setCoordinates(weatherData.data.coord)
+                setWeatherInfo(weatherData.data)
                 // error handling for no API return *****
             }).catch(function(error) {
                 if (error.response) {
@@ -75,7 +69,6 @@ function App() {
         e.preventDefault()
         setApiError(click)
     }
-    console.log("error from API call", apiError)
     return (
         <div className="App wrapper">
             <h1>WeatherPal</h1>
@@ -96,25 +89,26 @@ function App() {
                     {/* city/country/submit component */}
                     <InputForm handleSubmit={formSubmit} />
                     {/* main weather card component */}
-                    <WeatherDisplay
-                    time={localTime}
-                    forecast={mainTempStats.temp}
-                    city={citySelection}
-                    country={countrySelection}
-                    windSpeed={windSpeed}
-                    weatherIcon={weatherIconDesc}
-                    min={mainTempStats.temp_min}
-                    max={mainTempStats.temp_max}
-                    />
+                    {
+                        weatherInfo.weather && citySelection !== ""
+                        ?
+                        <WeatherDisplay
+                        weather={weatherInfo}
+                        time={localTime}
+                        city={citySelection}
+                        country={countrySelection}
+                        />
+                        : null
+                    }
                 </div>
                 {/* if API changes error state to true, do not render component */}
                 {/* four day forecast component */}
                 {
-                    apiError === false
+                    apiError === false && weatherInfo.weather
                     ?
                     <MultipleDays
                     cityCheck={citySelection}
-                    coords={coordinates}
+                    coords={weatherInfo}
                     />
                     : null
                 }
