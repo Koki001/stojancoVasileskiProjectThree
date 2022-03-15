@@ -63,7 +63,7 @@ function App() {
                 } 
             })
         } 
-    }, [citySelection, countrySelection])
+    }, [citySelection, countrySelection, apiError])
     // sumbit form handle from InputForm.js 
     const formSubmit = function(e, chosenCountry, chosenCity) {
         e.preventDefault()
