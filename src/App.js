@@ -19,7 +19,7 @@ function App() {
 
     useEffect(function() {
         // do not run api call if no city selection
-        if (citySelection !== "") {
+        if (citySelection !== "" && apiError === false) {
             axios ({
                 url: "https://api.openweathermap.org/data/2.5/weather",
                 params: {
@@ -28,10 +28,6 @@ function App() {
                     units: "metric"
                 }
             }).then(function(weatherData) {
-                // ensures false initial state if API is called
-                if (apiError === true) {
-                    setApiError(false)
-                }
                 // convert api info of selected city to respective local time
                 const getTime = function() {
                     const apiZone = weatherData.data.timezone
@@ -51,6 +47,7 @@ function App() {
                 if (error.response) {
                     setCitySelection("")
                     setCountrySelection("")
+                    setWeatherInfo({})
                     setApiError(true)
                 } else {
                    

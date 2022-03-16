@@ -1,11 +1,11 @@
 // FavoriteLocations.js
 
-const FavoriteLocations = function(){
-    return (
-        <div className="favLocationsContainer">
+// const FavoriteLocations = function(){
+//     return (
+//         <div className="favLocationsContainer">
             
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-export default FavoriteLocations
+// export default FavoriteLocations

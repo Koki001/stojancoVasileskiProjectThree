@@ -1,7 +1,8 @@
 // InputForm.js
 import {useState} from "react"
 import countryList from "./CountriesList"
-import FavoriteLocations from "./FavoriteLocations"
+// stretch goal 
+// import FavoriteLocations from "./FavoriteLocations"
 import PopupCity from "./PopupCity"
 import PopupCountry from "./PopupCountry"
 
